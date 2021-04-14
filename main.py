@@ -2,9 +2,11 @@
 # Email: kshennan1233@sdsu.edu
 # San Diego State University Department of Geography
 
-# General Notes: Ensure the spatial resolution of the input raster is an integer, otherwise the shapely interpolation
-# package will not give consistent results. The local server may take a few seconds to start, try using Chrome if you
-# encounter frequent "Unable to Connect" errors in browsers such as Firefox.
+ """General Notes: Ensure the spatial resolution of the input raster is an integer, otherwise the shapely interpolation
+ package will not give consistent results. The local server may take a few seconds to start, try using Chrome if you
+ encounter frequent "Unable to Connect" errors in browsers such as Firefox."""
+
+# sample usage below
 
 from libs.general_utils import *
 
@@ -53,31 +55,6 @@ def main():
                                  subtitle="Temperature profiles in Advance of Active Front ")
     # TIR Profile Plot
     th_ep3_t1_profiles.create_plot()
-
-    t2_profile = ProfileExtractor(shp_path="./data/shp/tir_th_seq4_forward_2_5k.shp",
-                                  raster_path="./data/raster/TIR/seq4_ep3/2017-12-09-031_IR3_041-te_10mpp.tif",
-                                  raster_driver_name="GTiff", shp_id_field="vect_id",
-                                  shp_front_start_field="front", desired_front=3,
-                                  csv_out_path="./output/ep3_tir_t2_data.csv", tir=True)
-
-    # t2_profile.extractor()
-
-    t3_profile = ProfileExtractor(shp_path="./data/shp/tir_th_seq4_forward_2_5k.shp",
-                                  raster_path="./data/raster/TIR/seq4_ep3/2017-12-09-032_IR3_080-te_10mpp.tif",
-                                  raster_driver_name="GTiff", shp_id_field="vect_id",
-                                  shp_front_start_field="front", desired_front=3,
-                                  csv_out_path="./output/ep3_tir_t3_data.csv", tir=True)
-
-    # t3_profile.extractor()
-
-    t4_profile = ProfileExtractor(shp_path="./data/shp/tir_th_seq4_forward_2_5k.shp",
-                                  raster_path="./data/raster/TIR/seq4_ep3/2017-12-09-033_IR3_045-te_10mpp.tif",
-                                  raster_driver_name="GTiff", shp_id_field="vect_id",
-                                  shp_front_start_field="front", desired_front=3,
-                                  csv_out_path="./output/ep3_tir_t4_data.csv", tir=True)
-
-    # t4_profile.extractor()
-
 
 if __name__ == '__main__':
     main()
